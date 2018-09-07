@@ -1,0 +1,85 @@
+FORMAT: 1A
+HOST: https://REPLACE-WITH-YOUR-ACCS-INSTANCE.oraclecloud.com
+
+# loyalty
+
+Loyalty is a sample coupon system
+
+## Points [/loyalty/v2/points/{id}]
+
+### Get the current points of member [GET]
+
++ Parameters
+    + id: `10001` (string, required) ... member ID
+
++ Response 200
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+    + Body
+
+            {
+                "points": 1
+            }
+
+### credit member 1 point [POST]
+
+For every 3 points, member will get 1 coupon and point will be reset to zero. Response will be current points.
+
++ Parameters
+
+    + id: `10001` (string, required) ... member ID
+
++ Request (application/json)
+
+        {
+
+        }
+
++ Response 200
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+    + Body
+
+            {
+                "points": 2
+            }
+
+## Coupon [/loyalty/v2/coupon/{id}]
+
+### Get the current coupon of member [GET]
+
++ Parameters
+    + id: `10001` (string, required) ... member ID
+
++ Response 200
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+    + Body
+
+            {
+                "coupon": 2
+            }
+
+### consume 1 coupon [POST]
+
++ Parameters
+    + id: `10001` (string, required) ... member ID
+
++ Request (application/json)
+
+        {
+
+        }
+
++ Response 200
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+    + Body
+
+            {
+                "coupon": 1
+            }
